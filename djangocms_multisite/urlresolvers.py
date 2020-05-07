@@ -5,7 +5,6 @@ import sys
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib.sites.models import Site
-from django.core.urlresolvers import RegexURLResolver
 from django.dispatch import receiver
 
 from cms.apphook_pool import apphook_pool
@@ -13,6 +12,15 @@ from cms.appresolver import get_app_patterns
 from cms.constants import SLUG_REGEXP
 from cms.signals import urls_need_reloading
 from cms.views import details
+
+
+# Django >= 2
+try:
+    from django.urls import URLResolver as RegexURLResolver
+# Django < 2
+except ImportError:
+    from django.core.urlresolvers import RegexURLResolver
+
 
 MULTISITE_PATTERNS = {}
 if settings.APPEND_SLASH:
@@ -28,6 +36,19 @@ def clear_multisite_patterns(*args, **kwargs):
 
 
 class CMSMultisiteRegexURLResolver(RegexURLResolver):
+
+    def __init__(self, pattern, callback, default_args=None, name=None):
+        # Django >= 2
+        try:
+            from django.urls import RegexPattern
+
+            pattern = RegexPattern(pattern)
+        # Django < 2
+        except ImportError:
+            pass
+
+        super.__init__(pattern, callback, default_args, name)
+
     @property
     def url_patterns(self):
         # Don't tweak anything if it's migration-related operation
