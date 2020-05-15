@@ -37,7 +37,7 @@ def clear_multisite_patterns(*args, **kwargs):
 
 class CMSMultisiteRegexURLResolver(RegexURLResolver):
 
-    def __init__(self, pattern, callback, default_args=None, name=None):
+    def __init__(self, pattern, callback, **kwargs):
         # Django >= 2
         try:
             from django.urls import RegexPattern
@@ -47,7 +47,7 @@ class CMSMultisiteRegexURLResolver(RegexURLResolver):
         except ImportError:
             pass
 
-        super.__init__(pattern, callback, default_args, name)
+        super().__init__(pattern, callback, **kwargs)
 
     @property
     def url_patterns(self):
