@@ -16,7 +16,7 @@ from cms.views import details
 
 # Django >= 2
 try:
-    from django.urls import URLResolver as RegexURLResolver
+    from django.urls.resolvers import URLResolver as RegexURLResolver
 # Django < 2
 except ImportError:
     from django.core.urlresolvers import RegexURLResolver
@@ -40,7 +40,7 @@ class CMSMultisiteRegexURLResolver(RegexURLResolver):
     def __init__(self, pattern, callback, default_kwargs=None, app_name=None, namespace=None):
         # Django >= 2
         try:
-            from django.urls import RegexPattern
+            from django.urls.resolvers import RegexPattern
 
             pattern = RegexPattern(pattern)
         # Django < 2
