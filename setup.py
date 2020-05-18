@@ -33,7 +33,7 @@ setup(
     license='BSD',
     zip_safe=False,
     keywords='djangocms-multisite, django',
-    test_suite='cms_helper.run',
+    test_suite='djangocms_helper.run',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django',
