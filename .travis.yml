@@ -19,7 +19,23 @@ matrix:
       env: DJANGO='dj111' CMS='cms37'
     - python: 3.5
       env: DJANGO='dj111' CMS='cms40'
+    - python: 3.6
+      env: DJANGO='dj111' CMS='cms35'
+    - python: 3.6
+      env: DJANGO='dj111' CMS='cms36'
+    - python: 3.6
+      env: DJANGO='dj111' CMS='cms37'
+    - python: 3.6
+      env: DJANGO='dj111' CMS='cms40'
     # Django 2.1
+    - python: 3.5
+      env: DJANGO='dj21' CMS='cms35'
+    - python: 3.5
+      env: DJANGO='dj21' CMS='cms36'
+    - python: 3.5
+      env: DJANGO='dj21' CMS='cms37'
+    - python: 3.5
+      env: DJANGO='dj21' CMS='cms40'
     - python: 3.6
       env: DJANGO='dj21' CMS='cms35'
     - python: 3.6
@@ -29,18 +45,40 @@ matrix:
     - python: 3.6
       env: DJANGO='dj21' CMS='cms40'
     # Django 2.2
+    - python: 3.5
+      env: DJANGO='dj22' CMS='cms35'
+    - python: 3.5
+      env: DJANGO='dj22' CMS='cms36'
+    - python: 3.5
+      env: DJANGO='dj22' CMS='cms37'
+    - python: 3.5
+      env: DJANGO='dj22' CMS='cms40'
+    - python: 3.6
+      env: DJANGO='dj22' CMS='cms35'
+    - python: 3.6
+      env: DJANGO='dj22' CMS='cms36'
+    - python: 3.6
+      env: DJANGO='dj22' CMS='cms37'
+    - python: 3.6
+      env: DJANGO='dj22' CMS='cms40'
     - python: 3.7
       env: DJANGO='dj22' CMS='cms35'
+      dist: xenial
+      sudo: true
     - python: 3.7
       env: DJANGO='dj22' CMS='cms36'
+      dist: xenial
+      sudo: true
     - python: 3.7
       env: DJANGO='dj22' CMS='cms37'
     - python: 3.7
       env: DJANGO='dj22' CMS='cms40'
       dist: xenial
       sudo: true
-    - python: 3.8
+    - python: 3.7
       env: DJANGO='dj22' CMS='cms40'
+      dist: xenial
+      sudo: true
 
 before_script:
   - pip install coverage isort tox

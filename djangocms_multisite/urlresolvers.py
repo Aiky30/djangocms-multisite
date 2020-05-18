@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
+
 import sys
 
 from django.conf import settings
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.contrib.sites.models import Site
 from django.dispatch import receiver
 
